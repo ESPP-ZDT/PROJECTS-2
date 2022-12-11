@@ -1,0 +1,6 @@
+Podstawowa aplikacja z menu, FootBar oraz SideBar
+
+
+npx create-react-app hfs-menu
+
+npm install @mui/material @emotion/react @emotion/styled
