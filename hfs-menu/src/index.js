@@ -5,13 +5,28 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Home from "./views/home";
 import Account from "./views/account";
+import Container from "./reusables/container";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/account" element={<Account />} />
+        <Route
+          path="/"
+          element={
+            <Container>
+              <Home />
+            </Container>
+          }
+        />
+        <Route
+          path="/account"
+          element={
+            <Container>
+              <Account />
+            </Container>
+          }
+        />
       </Routes>
     </Router>
     // <div className="App">
