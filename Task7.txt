@@ -1,0 +1,30 @@
+Portal do pisania recenzji i komentowania tych recenzji
+
+1. Obiekty
+- Recenzja -> atrybuty:: kto, kiedy napisana, czego dotyczy [film, ksiazka, płyta], tagi (można tworzyć własne), nazwa recenzowanego elementu, opcjonalny link do neta, tytuł recenzji, treść recenzji, podsumowanie::rekomendacja, ocena autora recenzji, licznik odczytów recenzji, licznik głosowań na recenzję (sprawdzić kto może glosować), ocena recenzji przez czytających
+- Lista recenzji (wynik szukania, minimalna ilośc atrybutów)
+- Komentarz -> atrybuty:: kto komentuje, kiedy, do czego, polubienie komentarza (na plus i może na minus)
+- Lista uzytkowników -> prosta lista pokazująca kto jest i może się logować
+- MojaStrona
+- MainPage
+2. pozycje Menu (chyba tylko górna belka, bo menu małe, przycisk logowania po prawej stronie)
+- Recenzje - szukaj (również po treściach w recenzji -> easticsearch w mongo? sprawdzić!)
+- Uzytkownicy
+- Logowanie
+- MojaStrona, by zobaczyć swoje recenzje oraz komentarze)
+- MainPage (ostatnio dodane, najlepsze, tagowe)
+3. Reguły
+- uzytkownicy niezalogowanii nie maja prawa komentować i oceniać
+- każdy może wyszukiwać recenzji (filtrowanie)
+- zautoryzowani użytkownicy dostep wszedzie, ale nie do administracji
+- autoryzacja za pomoca social media (nie wiem jak)
+- administrator widzi wszystko i może edytowac wszystko
+- tagi dodawane jako lista, można dodawac wiele
+- pole recenzji wspiera formatowanie (rich text? markup text?)
+- drag and drop na obrazkach, nie wiem jak :(
+- uzytkownik pozostawia rating [1..5] maks jeden
+- oprócz review równiez "LikeIt" jeden na recenzje
+- komentarze pod treścią recenzji, jako lista, nie ma zagnieżdżeń, komentarze nowe maja się magicznie mojawiać jak świeżo dodane (reader w locie?)
+- dwujęzyczność (jak najprościej), dwa tryby tematyczne (dark/light)
+
+
