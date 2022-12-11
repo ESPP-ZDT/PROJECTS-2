@@ -7,7 +7,6 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Drawer from "@mui/material/Drawer";
 import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 
 class Container extends React.Component {
@@ -100,7 +99,7 @@ class Container extends React.Component {
       <div>
         {this.header()}
         {this.sidebar()}
-        <div style={{ height: "82vh" }}>{this.props.children}</div>
+        <div style={{ height: "84vh" }}>{this.props.children}</div>
         {this.footer()}
       </div>
     );

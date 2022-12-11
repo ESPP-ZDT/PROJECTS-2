@@ -1,0 +1,13 @@
+.App {
+  text-align: center;
+}
+
+.mysidenav {
+  background-color: #88038a !important;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.page {
+  font-size: 5rem;
+  /* text-align: center; */
+}
