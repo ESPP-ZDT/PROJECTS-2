@@ -7,16 +7,30 @@
 	"item": [
 		{
 			"name": "GET ::  Root",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Body test\", function () {\r",
+							"    pm.response.to.have.body.toString().includes(\"ok\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5000/",
-					"protocol": "http",
+					"raw": "{{HomeUrl}}/",
 					"host": [
-						"localhost"
+						"{{HomeUrl}}"
 					],
-					"port": "5000",
 					"path": [
 						""
 					]
@@ -26,6 +40,19 @@
 		},
 		{
 			"name": "GET :: all Notes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [
@@ -36,12 +63,10 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:5000/api/notes",
-					"protocol": "http",
+					"raw": "{{HomeUrl}}/api/notes",
 					"host": [
-						"localhost"
+						"{{HomeUrl}}"
 					],
-					"port": "5000",
 					"path": [
 						"api",
 						"notes"
@@ -52,6 +77,19 @@
 		},
 		{
 			"name": "GET :: Note by noteId",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [
@@ -62,12 +100,10 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:5000/api/notes/2",
-					"protocol": "http",
+					"raw": "{{HomeUrl}}/api/notes/2",
 					"host": [
-						"localhost"
+						"{{HomeUrl}}"
 					],
-					"port": "5000",
 					"path": [
 						"api",
 						"notes",
@@ -76,6 +112,110 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "GET ::  Root Users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Body test\", function () {\r",
+							"    pm.response.to.have.body.toString().includes(\"ok\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HomeUrl}}/api/users",
+					"host": [
+						"{{HomeUrl}}"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ::  Register User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"pm.test(\"Body test\", function () {\r",
+							"    pm.response.to.have.body.toString().includes(\"ok\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Edek\",\r\n    \"email\":\"Edek@bezkredek.pl\",\r\n    \"password\":\"Edek!23\",\r\n    \"picture\":\"a.jpg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HomeUrl}}/api/users",
+					"host": [
+						"{{HomeUrl}}"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "HomeUrl",
+			"value": "http://localhost:5000",
+			"type": "default"
 		}
 	]
 }
