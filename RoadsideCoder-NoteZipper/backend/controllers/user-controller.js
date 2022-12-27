@@ -6,7 +6,7 @@ const registerUser = asynchandler(async (req, res) => {
   // check if user exists in mongoDb
   const userAlredyExist = await User.findOne({ email });
   if (userAlredyExist) {
-    req.status(400);
+    res.status(400);
     throw new Error("User alredy exists!");
   }
   // if not exist, we add new user
