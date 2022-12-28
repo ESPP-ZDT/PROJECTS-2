@@ -1,18 +1,23 @@
+// read configs and ENV parameters
 const dotenv = require("dotenv");
 dotenv.config();
+const PORT = process.env.PORT || 5000;
 
+// connect to data sources
 const notes = require("./data/notes");
 const connectDB = require("./config/db");
 connectDB();
 
+// prepare REST server
 const express = require("express");
 const app = express();
-const PORT = process.env.PORT || 5000;
 app.use(express.json());
 
+/// routes
 const userRoutes = require("./routes/user-routes");
 
-/// routes
+app.use("/api/users", userRoutes);
+
 app.get("/", (req, res) => {
   res.status(200).send("All ok");
 });
@@ -26,5 +31,8 @@ app.get("/api/notes/:noteId", (req, res) => {
   res.status(200).json(note);
 });
 
-app.use("/api/users", userRoutes);
+// error handlers and start app
+const { notFound, errorHandler } = require("./middlewares/error-middleware");
+app.use(notFound);
+app.use(errorHandler);
 app.listen(PORT, console.log(`Server started on port ${PORT}`));
