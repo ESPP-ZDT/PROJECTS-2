@@ -25,4 +25,28 @@ const registerUser = asynchandler(async (req, res) => {
   }
 });
 
-module.exports = { registerUser };
+const authoriseUser = asynchandler(async (req, res) => {
+  const { email, password } = req.body;
+  // check if user exists in mongoDb
+  const user = await User.findOne({ email });
+  console.log("user: ", user);
+  if (!user) {
+    res.status(400);
+    throw new Error("User not exists!");
+  }
+  // compare passwords
+  if (user && (await user.matchPassword(password))) {
+    res.status(200).json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      isAdmin: user.isAdmin,
+      picture: user.picture,
+    });
+  } else {
+    res.status(404);
+    throw new Error("Password doesn't match!");
+  }
+});
+
+module.exports = { registerUser, authoriseUser };

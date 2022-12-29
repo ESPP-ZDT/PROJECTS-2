@@ -5,6 +5,7 @@ const userController = require("../collections/users/user-controller");
 const userRouter = express.Router();
 
 userRouter.route("/").post(userController.registerUser);
+userRouter.route("/login").post(userController.authoriseUser);
 
 userRouter.route("/").get((req, res) => {
   res.status(200).send("User ok");
