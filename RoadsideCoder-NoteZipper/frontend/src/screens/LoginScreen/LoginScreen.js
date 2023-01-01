@@ -4,6 +4,8 @@ import { Form, Button, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import MainScreen from "../../components/MainScreen";
+import Loading from "../../components/Loading";
+import ErrorMessage from "../../components/ErrorMessage";
 
 import "./LoginScreen.css";
 
@@ -42,8 +44,8 @@ const LoginScreen = () => {
   return (
     <MainScreen title="Login">
       <div className="loginContainer">
-        {/* {error && <ErrorMessage variant="danger">{error}</ErrorMessage>} */}
-        {/* {loading && <Loading />} */}
+        {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
+        {loading && <Loading />}
         <Form onSubmit={submitHandler}>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
