@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/esm/Row";
 import Button from "react-bootstrap/esm/Button";
@@ -6,6 +8,15 @@ import Button from "react-bootstrap/esm/Button";
 import "./LandingPage.css";
 
 const LandingPage = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const userInfo = localStorage.getItem("userInfo");
+    if (userInfo) {
+      navigate("/mynotes");
+    }
+  }, []);
+
   return (
     <div className="main">
       <Container>
