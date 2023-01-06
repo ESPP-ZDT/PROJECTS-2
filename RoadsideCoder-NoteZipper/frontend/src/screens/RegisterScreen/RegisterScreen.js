@@ -41,6 +41,7 @@ function RegisterScreen() {
     }
     setPicMessage(null);
     if (pics.type === "image/jpeg" || pics.type === "image/png") {
+      // Warning, save on private cloud RoadsideCoder!!
       const data = new FormData();
       data.append("file", pics);
       data.append("upload_preset", "notezipper");
